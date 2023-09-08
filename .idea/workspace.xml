@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="websocket模块开发完成">
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/MPGenerator.java" afterDir="false" />
+    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="使用MP工具生成用户相关的CRUD">
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/DaoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/MallchatCustomApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/MallchatCustomApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-framwork/mallchat-common-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-framwork/mallchat-common-starter/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,8 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
+    "Notification.DisplayName-DoNotAsk-Lombok plugin": "Lombok integration problem",
+    "Notification.DoNotAsk-Lombok plugin": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -56,7 +59,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/a_java_program/MallChat/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/enums",
+    "last_opened_file_path": "D:/a_java_program/MallChat/mallchat-chat-server/src/main/resources/mapper.user",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,17 +72,17 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\resources\mapper.user" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\websocket\domain\enums" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\websocket\domain\vo\resp" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\websocket\domain\vo\req" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java" />
-      <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\websocket" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ztl.mallchat.common.websocket.domain.vo.req" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MPGenerator">
+  <component name="RunManager" selected="JUnit.DaoTest.test">
     <configuration name="BatchInsert" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ztl.mallchat.common.websocket.BatchInsert" />
       <module name="mallchat-chat-server" />
@@ -119,6 +122,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DaoTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mallchat-chat-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ztl.mallchat.common.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ztl.mallchat.common" />
+      <option name="MAIN_CLASS_NAME" value="com.ztl.mallchat.common.DaoTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MallchatCustomApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="mallchat-chat-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ztl.mallchat.common.MallchatCustomApplication" />
@@ -134,8 +153,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MPGenerator" />
+        <item itemvalue="JUnit.DaoTest.test" />
         <item itemvalue="Spring Boot.MallchatCustomApplication" />
+        <item itemvalue="Application.MPGenerator" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.BatchInsert" />
       </list>
@@ -151,7 +171,7 @@
       <updated>1693969978372</updated>
       <workItem from="1693969979798" duration="10884000" />
       <workItem from="1694067973942" duration="6719000" />
-      <workItem from="1694140453270" duration="5596000" />
+      <workItem from="1694140453270" duration="6613000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
@@ -177,7 +197,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694181569234</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="使用MP工具生成用户相关的CRUD">
+      <option name="closed" value="true" />
+      <created>1694183160579</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694183160579</updated>
+    </task>
+    <task id="LOCAL-00005" summary="使用MP工具生成用户相关的CRUD">
+      <option name="closed" value="true" />
+      <created>1694183166197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694183166197</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +224,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -198,6 +246,7 @@
     <MESSAGE value="mallchat环境搭建" />
     <MESSAGE value="netty实现websocket" />
     <MESSAGE value="websocket模块开发完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="websocket模块开发完成" />
+    <MESSAGE value="使用MP工具生成用户相关的CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用MP工具生成用户相关的CRUD" />
   </component>
 </project>

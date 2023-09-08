@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication(scanBasePackages = {"com.ztl.mallchat"})
-@ServletComponentScan
+@MapperScan({"com.ztl.mallchat.common.**.mapper"})
 public class MallchatCustomApplication {
 
     public static void main(String[] args) {
