@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="netty实现websocket">
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/enums/WSReqTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/enums/WSRespTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/req/ws/WSAuthorize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/req/ws/WSBaseReq.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/ChatMemberResp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSBaseResp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSBlack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSFriendApply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSLoginSuccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSLoginUrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSMemberChange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSMessageRead.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSMsgMark.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSMsgRecall.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/domain/vo/resp/ws/WSOnlineOfflineNotify.java" afterDir="false" />
+    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="websocket模块开发完成">
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/MPGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-framwork/mallchat-common-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-framwork/mallchat-common-starter/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +79,26 @@
       <recent name="com.ztl.mallchat.common.websocket.domain.vo.req" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MallchatCustomApplication">
+  <component name="RunManager" selected="Application.MPGenerator">
     <configuration name="BatchInsert" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ztl.mallchat.common.websocket.BatchInsert" />
       <module name="mallchat-chat-server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ztl.mallchat.common.websocket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MPGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ztl.mallchat.common.MPGenerator" />
+      <module name="mallchat-chat-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ztl.mallchat.common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,6 +134,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MPGenerator" />
         <item itemvalue="Spring Boot.MallchatCustomApplication" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.BatchInsert" />
@@ -153,7 +151,7 @@
       <updated>1693969978372</updated>
       <workItem from="1693969979798" duration="10884000" />
       <workItem from="1694067973942" duration="6719000" />
-      <workItem from="1694140453270" duration="4158000" />
+      <workItem from="1694140453270" duration="5596000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
@@ -171,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694006146328</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="websocket模块开发完成">
+      <option name="closed" value="true" />
+      <created>1694181569234</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694181569234</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,17 +197,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="mallchat环境搭建" />
     <MESSAGE value="netty实现websocket" />
-    <option name="LAST_COMMIT_MESSAGE" value="netty实现websocket" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="websocket模块开发完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="websocket模块开发完成" />
   </component>
 </project>
