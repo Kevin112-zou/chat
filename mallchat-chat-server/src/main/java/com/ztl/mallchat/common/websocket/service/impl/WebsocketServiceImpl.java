@@ -63,6 +63,7 @@ public class WebsocketServiceImpl implements WebsocketService {
 
     /**
      * 前端登录请求逻辑
+     * @SneakyThrows: 忽视不必要异常
      * @param channel
      */
     @SneakyThrows

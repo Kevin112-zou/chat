@@ -1,5 +1,7 @@
 package com.ztl.mallchat.common.user.controller;
 
+import com.ztl.mallchat.common.user.service.WXMsgService;
+import com.ztl.mallchat.common.user.service.impl.WXMsgServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
@@ -25,10 +27,9 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 @RequestMapping("wx/portal/public")
 public class WxPortalController {
-
     @Autowired
-    private WxMpService wxService;
-//    private final WxMpService wxService;
+    private WXMsgService wxMsgService;
+    private final WxMpService wxService;
     private final WxMpMessageRouter messageRouter;
 
     @GetMapping("/test")
@@ -62,7 +63,9 @@ public class WxPortalController {
     @GetMapping("/callBack")
     public RedirectView callBack(@RequestParam String code) {
         try {
+            // 通过code获取accessToken
             WxOAuth2AccessToken accessToken = wxService.getOAuth2Service().getAccessToken(code);
+            // 通过accessToken获取用户信息
             WxOAuth2UserInfo userInfo = wxService.getOAuth2Service().getUserInfo(accessToken, "zh_CN");
             System.out.println(userInfo);
 //            wxMsgService.authorize(userInfo);

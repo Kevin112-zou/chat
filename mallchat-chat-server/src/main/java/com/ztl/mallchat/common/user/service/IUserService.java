@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author kevin
  * @since 2023-09-08
  */
-public interface IUserService extends IService<User> {
+public interface IUserService {
 
+    Long register(User user1);
 }
