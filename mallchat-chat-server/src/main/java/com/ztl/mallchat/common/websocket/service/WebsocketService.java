@@ -10,4 +10,7 @@ public interface WebsocketService {
     void connect(Channel channel);
 
     void handleLoginReq(Channel channel);
+
+    void offLine(Channel channel);
+
 }

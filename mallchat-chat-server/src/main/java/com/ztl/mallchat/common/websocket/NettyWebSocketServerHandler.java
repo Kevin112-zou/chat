@@ -30,6 +30,12 @@ public class NettyWebSocketServerHandler extends SimpleChannelInboundHandler<Tex
         websocketService.connect(ctx.channel());
     }
 
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        // 用户主动下线
+        userOffline(ctx.channel());
+    }
+
     /**
      * 当你在 Netty 中使用 Channel 与远程端点通信时，可能会遇到一些非常具体的事件，这些事件不是标准的消息传输或数据读写事件。
      * 这些事件可以是连接状态的更改、协议特定的事件、超时事件等等。在这些情况下，你可以使用 userEventTriggered 方法来捕获和处理这些自定义事件
@@ -48,10 +54,16 @@ public class NettyWebSocketServerHandler extends SimpleChannelInboundHandler<Tex
             if(event.state() == IdleState.READER_IDLE){
                 System.out.println("读空闲");
                 // 关闭连接
-                ctx.channel().close();
-                // todo 用户下线
+                userOffline(ctx.channel());
+                // todo 用户下线 向前端推送用户下线通知
             }
         }
+    }
+
+    private void userOffline(Channel channel){
+        // 关闭channel前先把websocket连接释放掉
+        websocketService.offLine(channel);
+        channel.close();
     }
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {

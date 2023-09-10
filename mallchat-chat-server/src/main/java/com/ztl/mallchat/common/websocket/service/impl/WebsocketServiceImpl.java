@@ -76,6 +76,13 @@ public class WebsocketServiceImpl implements WebsocketService {
         sendMsg(channel, WebSocketAdapter.buildResp(wxMpQrCodeTicket));
     }
 
+    @Override
+    public void offLine(Channel channel) {
+        // 如果用户下线就将channel从map中remove掉
+        ONLINE_WS_MAP.remove(channel);
+        // todo 进行用户下线的广播
+    }
+
     private void sendMsg(Channel channel, WSBaseResp<WSLoginUrl> resp) {
         channel.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(resp)));
     }
