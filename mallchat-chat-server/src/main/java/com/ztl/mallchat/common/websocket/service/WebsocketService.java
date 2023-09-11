@@ -13,4 +13,8 @@ public interface WebsocketService {
 
     void offLine(Channel channel);
 
+    void scanLoginSuccess(Integer code, Long id);
+
+    void waitAuthorize(Integer code);
+
 }

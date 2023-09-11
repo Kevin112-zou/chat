@@ -7,7 +7,7 @@ import lombok.Data;
  * Date  2023/09/08
  */
 @Data
-public class WSBaseResp<T> {
+public class WSBaseResp<T>{
     /**
      * @see com.ztl.mallchat.common.websocket.domain.enums.WSRespTypeEnum
      */

@@ -68,7 +68,8 @@ public class WxPortalController {
             // 通过accessToken获取用户信息
             WxOAuth2UserInfo userInfo = wxService.getOAuth2Service().getUserInfo(accessToken, "zh_CN");
             System.out.println(userInfo);
-//            wxMsgService.authorize(userInfo);
+            //
+            wxMsgService.authorize(userInfo);
         } catch (Exception e) {
             log.error("callBack error", e);
         }
