@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="扫码登录具体逻辑实现：下">
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/thread/MyThreadFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/thread/MyUncaughtExceptionHandler.java" afterDir="false" />
+    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="优化用户认证，用户每刷新一次就需要重新登录的逻辑">
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/HttpHeadersHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/config/ThreadPoolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/config/ThreadPoolConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/utils/RedisUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/utils/RedisUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/WebsocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/WebsocketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/adapter/WebSocketAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/adapter/WebSocketAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/DaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/DaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +193,8 @@
       <workItem from="1694404181979" duration="1474000" />
       <workItem from="1694403735199" duration="5347000" />
       <workItem from="1694424986063" duration="8198000" />
-      <workItem from="1694499443153" duration="4028000" />
+      <workItem from="1694499443153" duration="6742000" />
+      <workItem from="1694527110850" duration="2887000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
@@ -282,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694443675111</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="优化用户认证，用户每刷新一次就需要重新登录的逻辑">
+      <option name="closed" value="true" />
+      <created>1694513938332</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694513938332</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +324,8 @@
     <MESSAGE value="扫码登录具体逻辑实现：修改用户下线，没有删除对应的信息的bug" />
     <MESSAGE value="扫码登录具体逻辑实现：中" />
     <MESSAGE value="扫码登录具体逻辑实现：下" />
-    <option name="LAST_COMMIT_MESSAGE" value="扫码登录具体逻辑实现：下" />
+    <MESSAGE value="优化用户认证，用户每刷新一次就需要重新登录的逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化用户认证，用户每刷新一次就需要重新登录的逻辑" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -331,11 +334,6 @@
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/WxPortalController.java</url>
           <line>66</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServerHandler.java</url>
@@ -354,13 +352,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java</url>
-          <line>160</line>
+          <line>163</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/LoginServiceImpl.java</url>

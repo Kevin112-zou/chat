@@ -14,6 +14,9 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
+import io.netty.util.Attribute;
+import io.netty.util.AttributeKey;
+import org.apache.commons.lang3.StringUtils;
 
 public class NettyWebSocketServerHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
@@ -48,6 +51,10 @@ public class NettyWebSocketServerHandler extends SimpleChannelInboundHandler<Tex
 
         if(evt instanceof WebSocketServerProtocolHandler.HandshakeComplete){
             System.out.println("握手完成");
+            String token = NettyUtil.getAttr(ctx.channel(), NettyUtil.TOKEN);
+            if(StringUtils.isNotBlank(token)){
+                websocketService.authorize(ctx.channel(),token);
+            }
         }else if(evt instanceof IdleStateEvent){
             System.out.println("心跳检查");
             IdleStateEvent event = (IdleStateEvent) evt;

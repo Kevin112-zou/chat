@@ -8,20 +8,14 @@ import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import com.ztl.mallchat.common.user.service.LoginService;
 import com.ztl.mallchat.common.websocket.domain.dto.WSChannelExtraDTO;
-import com.ztl.mallchat.common.websocket.domain.enums.WSRespTypeEnum;
-import com.ztl.mallchat.common.websocket.domain.vo.req.ws.WSBaseReq;
 import com.ztl.mallchat.common.websocket.domain.vo.resp.ws.WSBaseResp;
-import com.ztl.mallchat.common.websocket.domain.vo.resp.ws.WSLoginUrl;
 import com.ztl.mallchat.common.websocket.service.WebsocketService;
 import com.ztl.mallchat.common.websocket.service.adapter.WebSocketAdapter;
 import io.netty.channel.Channel;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-import io.swagger.models.auth.In;
 import lombok.SneakyThrows;
-import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.result.WxMpQrCodeTicket;
-import net.sf.jsqlparser.statement.select.Wait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -153,7 +147,7 @@ public class WebsocketServiceImpl implements WebsocketService {
         wsChannelExtraDTO.setUid(user.getId());
         // todo 用户上下线的事件变更
         // 推送消息给前端
-        sendMsg(channel,WebSocketAdapter.buildInvalidTokenResp());
+        sendMsg(channel,WebSocketAdapter.buildLoginSuccessResp(user,token));
     }
 
     private void sendMsg(Channel channel, WSBaseResp<?> resp) {
