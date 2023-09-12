@@ -112,8 +112,8 @@ public class WebsocketServiceImpl implements WebsocketService {
         WAIT_LOGIN_MAP.invalidate(code);
         // 4. 调用登录模块获取token
         String token = loginService.getLoginToken(uid);
-        // 5. 登录成功封装返回的数据
-        sendMsg(channel,WebSocketAdapter.buildLoginSuccessResp(user,token));
+        // 5. 登录成功封装返回的数据,并且要更新用户的一些信息
+        loginSuccess(channel,user,token);
     }
 
     /**
@@ -128,6 +128,32 @@ public class WebsocketServiceImpl implements WebsocketService {
             return;
         }
         sendMsg(channel,WebSocketAdapter.buildWaitAuthorizeResp());
+    }
+
+    /**
+     * 用户认证
+     * @param channel
+     * @param token
+     */
+    @Override
+    public void authorize(Channel channel, String token) {
+        Long uid = loginService.getValidUid(token);
+        if(Objects.nonNull(uid)){
+            User user = userDao.getById(uid);
+            loginSuccess(channel,user,token);
+        }else {
+            // 如果token已经过期，告诉前端，让他下次请求不用再带token
+            sendMsg(channel,WebSocketAdapter.buildInvalidTokenResp());
+        }
+    }
+
+    private void loginSuccess(Channel channel, User user, String token) {
+        // 1. 保存channel对应的uid
+        WSChannelExtraDTO wsChannelExtraDTO = ONLINE_WS_MAP.get(channel);
+        wsChannelExtraDTO.setUid(user.getId());
+        // todo 用户上下线的事件变更
+        // 推送消息给前端
+        sendMsg(channel,WebSocketAdapter.buildInvalidTokenResp());
     }
 
     private void sendMsg(Channel channel, WSBaseResp<?> resp) {

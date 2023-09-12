@@ -1,5 +1,6 @@
 package com.ztl.mallchat.common.common.config;
 
+import com.ztl.mallchat.common.common.thread.MyThreadFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -42,6 +43,7 @@ public class ThreadPoolConfig implements AsyncConfigurer {
         executor.setQueueCapacity(200);
         executor.setThreadNamePrefix("mallchat-executor-");
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());//满了调用线程执行，认为重要任务
+        executor.setThreadFactory(new MyThreadFactory(executor));
         executor.initialize();
         return executor;
     }

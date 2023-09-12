@@ -1,5 +1,6 @@
 package com.ztl.mallchat.common;
 
+import com.ztl.mallchat.common.common.thread.MyUncaughtExceptionHandler;
 import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import lombok.extern.slf4j.Slf4j;
@@ -26,14 +27,14 @@ public class DaoTest {
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
     @Test
     public void threadPool(){
-
-        new Thread();
-        threadPoolTaskExecutor.execute(() -> {
-            if( 1 == 1){
-                log.error("113212");
-                throw new RuntimeException("12313");
+        Thread thread = new Thread(()->{
+            if(1 == 1){
+                log.error("121");
+                throw new RuntimeException("1213");
             }
         });
+        thread.setUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
+        thread.start();
     }
     @Test
     public void test(){

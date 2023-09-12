@@ -41,7 +41,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     /**
-     * @Async 注解是Spring Framework中的一个注解，用于支持异步方法的执行。
+     * @Async 注解是Spring Framework中的一个注解，用于支持异步方法的执行。会将任务交给spring的线程池管理
      * 它允许你将一个普通的Java方法标记为异步方法，使该方法可以在后台线程中执行，而不会阻塞调用它的线程。
      * 这对于处理需要一些时间来完成的任务，如长时间的计算、远程调用或I/O操作非常有用，因为它可以提高应用程序的性能和响应性。
      */
@@ -67,7 +67,8 @@ public class LoginServiceImpl implements LoginService {
         if(Objects.isNull(uid)){
             return null;
         }
-        String oldToken = RedisUtils.get(getUserTokenKey(uid));
+        //***修改bug不能用get()方法去解析字符串类型的数据要不然会带上引号***
+        String oldToken = RedisUtils.getStr(getUserTokenKey(uid));
         // 这里为了避免oldToken被newToken刷新了，但是依然拿着老的token再解析出uid，做了一层比较
         return Objects.equals(oldToken,token)? uid : null;
     }

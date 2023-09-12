@@ -17,4 +17,5 @@ public interface WebsocketService {
 
     void waitAuthorize(Integer code);
 
+    void authorize(Channel channel, String data);
 }
