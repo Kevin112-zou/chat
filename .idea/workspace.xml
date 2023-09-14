@@ -5,11 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="优化用户认证，用户每刷新一次就需要重新登录的逻辑">
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/HttpHeadersHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/user/BlackReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/user/ItemInfoReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/user/ModifyNameReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/user/SummeryInfoReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/user/UserEmojiReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/user/WearingBadgeReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/ws/WSAuthorize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/request/ws/WSBaseReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/user/BadgeResp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/user/UserEmojiResp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/user/UserInfoResp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/ChatMemberResp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSBlack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSFriendApply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSLoginSuccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSLoginUrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSMemberChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSMessageRead.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSMsgMark.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSMsgRecall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/response/ws/WSOnlineOfflineNotify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/NettyWebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +51,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\maven_3.6\apache-maven-3.6.3-bin\repository" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../maven_3.6/apache-maven-3.6.3-bin/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="D:\maven_3.6\apache-maven-3.6.3-bin\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="localRepository" value="D:\a_ztl\maven_repo" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../apache-maven-3.9.4" />
+        <option name="userSettingsFile" value="D:\a_ztl\apache-maven-3.9.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -44,42 +70,42 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Lombok plugin&quot;: &quot;Lombok integration problem&quot;,
-    &quot;Notification.DoNotAsk-Lombok plugin&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/a_java_program/MallChat/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/utils&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;cn.yiiguxing.plugin.translate&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;84c3eb461693d4f12464c9b2ba5d5999&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Notification.DisplayName-DoNotAsk-Lombok plugin": "Lombok integration problem",
+    "Notification.DoNotAsk-Lombok plugin": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/a_ztl/MallChat/mall-chat/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "84c3eb461693d4f12464c9b2ba5d5999",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\a_ztl\MallChat\mall-chat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\user\domain" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\common\utils" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\user\service" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\user\service\handler" />
       <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\java\com\ztl\mallchat\common\user\config" />
-      <recent name="D:\a_java_program\MallChat\mallchat-chat-server\src\main\resources\mapper.user" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ztl.mallchat.common.common.config" />
@@ -195,6 +221,7 @@
       <workItem from="1694424986063" duration="8198000" />
       <workItem from="1694499443153" duration="6742000" />
       <workItem from="1694527110850" duration="2887000" />
+      <workItem from="1694711539732" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
