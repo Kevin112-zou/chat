@@ -46,11 +46,11 @@ public class JwtUtils {
         return token;
     }
 
-    public static void main(String[] args) {
-        JwtUtils jwtUtils = new JwtUtils();
-        String token = jwtUtils.createToken(123L);
-        System.out.println(token);
-    }
+//    public static void main(String[] args) {
+//        JwtUtils jwtUtils = new JwtUtils();
+//        String token = jwtUtils.createToken(123L);
+//        System.out.println(token);
+//    }
 
     /**
      * 解密Token

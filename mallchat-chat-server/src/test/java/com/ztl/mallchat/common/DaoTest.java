@@ -1,12 +1,15 @@
 package com.ztl.mallchat.common;
 
 import com.ztl.mallchat.common.common.thread.MyUncaughtExceptionHandler;
+import com.ztl.mallchat.common.common.utils.JwtUtils;
 import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
+import com.ztl.mallchat.common.user.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -22,7 +25,11 @@ public class DaoTest {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private JwtUtils jwtUtils;
 
+    @Autowired
+    private LoginService loginService;
     @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
     @Test
@@ -35,6 +42,11 @@ public class DaoTest {
         });
         thread.setUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
         thread.start();
+    }
+    @Test
+    public void jwt(){
+        String loginToken = loginService.getLoginToken(100028L);
+        System.out.println(loginToken);
     }
     @Test
     public void test(){
