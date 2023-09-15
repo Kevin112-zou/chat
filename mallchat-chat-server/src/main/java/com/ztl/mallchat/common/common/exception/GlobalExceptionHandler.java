@@ -20,6 +20,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ApiResult methodArgumentNotValidExceptionExceptionHandler(MethodArgumentNotValidException e) {
         StringBuilder errorMsg = new StringBuilder();
+        // 构造异常捕获的信息
         e.getBindingResult().getFieldErrors().forEach(x -> errorMsg.append(x.getField()).append(x.getDefaultMessage()).append(","));
         String message = errorMsg.toString();
         log.info("validation parameters error！The reason is:{}", message);

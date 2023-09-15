@@ -79,7 +79,7 @@ public class NettyWebSocketServer {
                          */
                         pipeline.addLast(new HttpObjectAggregator(8192));
                         //保存用户ip
-                        //pipeline.addLast(new HttpHeadersHandler());
+//                        pipeline.addLast(new HttpHeadersHandler());
                         // 保存请求头
                         pipeline.addLast(new HttpHeadersHandler());
                         /**

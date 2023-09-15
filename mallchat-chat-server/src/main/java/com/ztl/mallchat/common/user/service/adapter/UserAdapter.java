@@ -10,6 +10,7 @@ import cn.hutool.core.util.RandomUtil;
 //import com.abin.mallchat.common.user.domain.vo.response.user.BadgeResp;
 //import com.abin.mallchat.common.user.domain.vo.response.user.UserInfoResp;
 import com.ztl.mallchat.common.user.domain.entity.User;
+import com.ztl.mallchat.common.user.domain.vo.resp.user.UserInfoResp;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 
@@ -47,13 +48,13 @@ public class UserAdapter {
         return user;
     }
 
-//    public static UserInfoResp buildUserInfoResp(User userInfo, Integer countByValidItemId) {
-//        UserInfoResp userInfoResp = new UserInfoResp();
-//        BeanUtil.copyProperties(userInfo, userInfoResp);
-//        userInfoResp.setModifyNameChance(countByValidItemId);
-//        return userInfoResp;
-//    }
-//
+    public static UserInfoResp buildUserInfo(User user, Integer countByValidItemId) {
+        UserInfoResp userInfoResp = new UserInfoResp();
+        BeanUtil.copyProperties(user,userInfoResp);
+        userInfoResp.setModifyNameChance(countByValidItemId);
+        return userInfoResp;
+    }
+
 //    public static List<BadgeResp> buildBadgeResp(List<ItemConfig> itemConfigs, List<UserBackpack> backpacks, User user) {
 //        if (ObjectUtil.isNull(user)) {
 //            // 这里 user 入参可能为空，防止 NPE 问题
