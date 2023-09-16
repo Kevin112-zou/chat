@@ -1,6 +1,7 @@
 package com.ztl.mallchat.common.common.utils;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.ztl.mallchat.common.common.exception.BusinessErrorEnum;
 import com.ztl.mallchat.common.common.exception.BusinessException;
 import com.ztl.mallchat.common.common.exception.CommonErrorEnum;
 import com.ztl.mallchat.common.common.exception.ErrorEnum;
@@ -109,14 +110,14 @@ public class AssertUtil {
         }
     }
 
-    //如果不是非空对象，则抛异常
+    //如果是非空对象，则抛异常
     public static void isNotEmpty(Object obj, String msg) {
         if (isEmpty(obj)) {
             throwException(msg);
         }
     }
 
-    //如果不是非空对象，则抛异常
+    //如果是非空对象，则抛异常
     public static void isNotEmpty(Object obj, ErrorEnum errorEnum, Object... args) {
         if (isEmpty(obj)) {
             throwException(errorEnum, args);
@@ -152,7 +153,7 @@ public class AssertUtil {
 
     private static void throwException(ErrorEnum errorEnum, Object... arg) {
         if (Objects.isNull(errorEnum)) {
-            errorEnum = CommonErrorEnum.SYSTEM_ERROR;
+            errorEnum = BusinessErrorEnum.BUSINESS_ERROR;
         }
         throw new BusinessException(errorEnum.getErrorCode(), MessageFormat.format(errorEnum.getErrorMsg(), arg));
     }

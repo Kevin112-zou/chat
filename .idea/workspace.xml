@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="配置全局异常处理类">
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/utils/AssertUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="自定义业务异常处理类以及完成改名卡接口">
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/config/CacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/cache/ItemCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/BusinessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/BusinessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/ItemConfigDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/ItemConfigDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserBackpackDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserBackpackDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/ItemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/ItemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/UserBackpack.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/UserBackpack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/adapter/UserAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/adapter/UserAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +213,7 @@
       <workItem from="1694746851600" duration="22496000" />
       <workItem from="1694832354152" duration="20000" />
       <workItem from="1694856073785" duration="35000" />
-      <workItem from="1694856120116" duration="5987000" />
+      <workItem from="1694856120116" duration="12701000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
@@ -320,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694787404246</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="自定义业务异常处理类以及完成改名卡接口">
+      <created>1694870554865</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694870554865</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +375,8 @@
     <MESSAGE value="优化swagger文档" />
     <MESSAGE value="实现登录的全局拦截器，接口即权限的逻辑" />
     <MESSAGE value="配置全局异常处理类" />
-    <option name="LAST_COMMIT_MESSAGE" value="配置全局异常处理类" />
+    <MESSAGE value="自定义业务异常处理类以及完成改名卡接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="自定义业务异常处理类以及完成改名卡接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -400,14 +412,29 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/interceptor/TokenInterceptor.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="26" />
+          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="32" />
+          <line>51</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/adapter/UserAdapter.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

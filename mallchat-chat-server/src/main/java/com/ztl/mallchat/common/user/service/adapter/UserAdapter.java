@@ -9,7 +9,11 @@ import cn.hutool.core.util.RandomUtil;
 //import com.abin.mallchat.common.user.domain.entity.UserBackpack;
 //import com.abin.mallchat.common.user.domain.vo.response.user.BadgeResp;
 //import com.abin.mallchat.common.user.domain.vo.response.user.UserInfoResp;
+import com.ztl.mallchat.common.common.enums.YesOrNo;
+import com.ztl.mallchat.common.user.domain.entity.ItemConfig;
 import com.ztl.mallchat.common.user.domain.entity.User;
+import com.ztl.mallchat.common.user.domain.entity.UserBackpack;
+import com.ztl.mallchat.common.user.domain.vo.resp.user.BadgeResp;
 import com.ztl.mallchat.common.user.domain.vo.resp.user.UserInfoResp;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
@@ -55,21 +59,22 @@ public class UserAdapter {
         return userInfoResp;
     }
 
-//    public static List<BadgeResp> buildBadgeResp(List<ItemConfig> itemConfigs, List<UserBackpack> backpacks, User user) {
-//        if (ObjectUtil.isNull(user)) {
-//            // 这里 user 入参可能为空，防止 NPE 问题
-//            return Collections.emptyList();
-//        }
-//
-//        Set<Long> obtainItemSet = backpacks.stream().map(UserBackpack::getItemId).collect(Collectors.toSet());
-//        return itemConfigs.stream().map(a -> {
-//            BadgeResp resp = new BadgeResp();
-//            BeanUtil.copyProperties(a, resp);
-//            resp.setObtain(obtainItemSet.contains(a.getId()) ? YesOrNoEnum.YES.getStatus() : YesOrNoEnum.NO.getStatus());
-//            resp.setWearing(ObjectUtil.equal(a.getId(), user.getItemId()) ? YesOrNoEnum.YES.getStatus() : YesOrNoEnum.NO.getStatus());
-//            return resp;
-//        }).sorted(Comparator.comparing(BadgeResp::getWearing, Comparator.reverseOrder())
-//                .thenComparing(BadgeResp::getObtain, Comparator.reverseOrder()))
-//                .collect(Collectors.toList());
-//    }
+
+    public static List<BadgeResp> buildBadgeResp(List<ItemConfig> itemConfigs, List<UserBackpack> backpacks, User user) {
+        if (ObjectUtil.isNull(user)) {
+            // 这里 user 入参可能为空，防止 NPE 问题
+            return Collections.emptyList();
+        }
+
+        Set<Long> obtainItemSet = backpacks.stream().map(UserBackpack::getItemId).collect(Collectors.toSet());
+        return itemConfigs.stream().map(a -> {
+            BadgeResp resp = new BadgeResp();
+            BeanUtil.copyProperties(a, resp);
+            resp.setObtain(obtainItemSet.contains(a.getId()) ? YesOrNo.YES.getStatus() : YesOrNo.NO.getStatus());
+            resp.setWearing(ObjectUtil.equal(a.getId(), user.getItemId()) ? YesOrNo.YES.getStatus() : YesOrNo.NO.getStatus());
+            return resp;
+        }).sorted(Comparator.comparing(BadgeResp::getWearing, Comparator.reverseOrder()) // 排序规则，佩戴》拥有》未拥有
+                .thenComparing(BadgeResp::getObtain, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+    }
 }
