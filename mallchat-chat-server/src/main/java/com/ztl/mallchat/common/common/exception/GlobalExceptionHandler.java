@@ -20,7 +20,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ApiResult methodArgumentNotValidExceptionExceptionHandler(MethodArgumentNotValidException e) {
         StringBuilder errorMsg = new StringBuilder();
-        // 构造异常捕获的信息
+        /**
+         * e.getBindingResult()用于获取验证结果，getFieldErrors()返回一个包含验证失败的字段信息的列表。
+         * 然后使用forEach方法遍历每个验证失败的字段，将字段名和错误消息添加到errorMsg中，并用逗号分隔各个字段的信息。
+         */
         e.getBindingResult().getFieldErrors().forEach(x -> errorMsg.append(x.getField()).append(x.getDefaultMessage()).append(","));
         String message = errorMsg.toString();
         log.info("validation parameters error！The reason is:{}", message);

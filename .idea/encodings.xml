@@ -10,13 +10,7 @@
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/FrequencyControlException.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/GlobalExceptionHandler.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/exception/HttpErrorEnum.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/friend/FriendApplyReq.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/friend/FriendApproveReq.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/friend/FriendCheckReq.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/friend/FriendDeleteReq.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/oss/UploadUrlReq.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/user/BlackReq.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/user/EmojisPageReq.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/user/ItemInfoReq.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/user/ModifyNameReq.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/user/SummeryInfoReq.java" charset="GBK" />
@@ -24,10 +18,6 @@
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/user/WearingBadgeReq.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/ws/WSAuthorize.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/req/ws/WSBaseReq.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/friend/FriendApplyResp.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/friend/FriendCheckResp.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/friend/FriendResp.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/friend/FriendUnreadResp.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/user/BadgeResp.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/user/UserEmojiResp.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/user/UserInfoResp.java" charset="GBK" />
@@ -37,17 +27,10 @@
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSLoginSuccess.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSLoginUrl.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSMemberChange.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSMessage.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSMessageRead.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSMsgMark.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSMsgRecall.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/vo/resp/ws/WSOnlineOfflineNotify.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mallchat-chat-server/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/mallchat-framwork/mallchat-common-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/mallchat-framwork/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/mallchat-framwork/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

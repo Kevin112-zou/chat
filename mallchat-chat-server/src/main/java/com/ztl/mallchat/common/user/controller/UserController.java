@@ -41,7 +41,6 @@ public class UserController {
     public ApiResult<Void> modifyName(@Valid @RequestBody ModifyNameReq req){
         userService.modifyName(RequestHolder.get().getUid(),req.getName());
         return ApiResult.success();
-
     }
 }
 
