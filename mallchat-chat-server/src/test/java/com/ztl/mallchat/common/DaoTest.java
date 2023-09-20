@@ -4,6 +4,10 @@ import com.ztl.mallchat.common.common.thread.MyUncaughtExceptionHandler;
 import com.ztl.mallchat.common.common.utils.JwtUtils;
 import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
+import com.ztl.mallchat.common.user.domain.enums.IdempotentEnum;
+import com.ztl.mallchat.common.user.domain.enums.ItemEnum;
+import com.ztl.mallchat.common.user.domain.enums.ItemTypeEnum;
+import com.ztl.mallchat.common.user.service.IUserBackpackService;
 import com.ztl.mallchat.common.user.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -23,6 +27,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 public class DaoTest {
 
+    public static final long UID = 100028L;
     @Autowired
     private UserDao userDao;
     @Autowired
@@ -45,8 +50,15 @@ public class DaoTest {
     }
     @Test
     public void jwt(){
-        String loginToken = loginService.getLoginToken(100028L);
+        String loginToken = loginService.getLoginToken(UID);
         System.out.println(loginToken);
+    }
+
+    @Autowired
+    private IUserBackpackService userBackpackService;
+    @Test
+    public void acquireItem(){
+        userBackpackService.acquireItem(UID, ItemEnum.PLANET.getId(), IdempotentEnum.UID, UID+"");
     }
     @Test
     public void test(){

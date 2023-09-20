@@ -2,6 +2,7 @@ package com.ztl.mallchat.common.user.dao;
 
 import com.ztl.mallchat.common.common.enums.YesOrNo;
 import com.ztl.mallchat.common.user.domain.entity.UserBackpack;
+import com.ztl.mallchat.common.user.domain.enums.IdempotentEnum;
 import com.ztl.mallchat.common.user.mapper.UserBackpackMapper;
 import com.ztl.mallchat.common.user.service.IUserBackpackService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -52,5 +53,11 @@ public class UserBackpackDao extends ServiceImpl<UserBackpackMapper, UserBackpac
                 .eq(UserBackpack::getStatus, YesOrNo.YES.getStatus())
                 .eq(UserBackpack::getItemId, itemId)
                 .list();
+    }
+
+    public UserBackpack getIdempotent(String idempotent) {
+        return lambdaQuery()
+                .eq(UserBackpack::getIdempotent, idempotent)
+                .one();
     }
 }
