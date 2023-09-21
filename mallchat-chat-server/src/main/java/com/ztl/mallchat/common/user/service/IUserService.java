@@ -22,7 +22,7 @@ public interface IUserService {
     /**
      * 用户注册
      */
-    Long register(User user1);
+    void register(User user1);
 
     /**
      * 获取用户信息

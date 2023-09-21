@@ -27,19 +27,10 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 @RequestMapping("wx/portal/public")
 public class WxPortalController {
-    @Autowired
-    private WXMsgService wxMsgService;
     private final WxMpService wxService;
     private final WxMpMessageRouter messageRouter;
+    private final WXMsgService wxMsgService;
 
-    @GetMapping("/test")
-    public String getQrCode(@RequestParam Integer code) throws WxErrorException {
-        WxMpQrCodeTicket wxMpQrCodeTicket = wxService.getQrcodeService().qrCodeCreateTmpTicket(code, 30000);
-        String url = wxMpQrCodeTicket.getUrl();
-        System.out.println(url);
-        return url;
-
-    }
     @GetMapping(produces = "text/plain;charset=utf-8")
     public String authGet(@RequestParam(name = "signature", required = false) String signature,
                           @RequestParam(name = "timestamp", required = false) String timestamp,
@@ -63,19 +54,15 @@ public class WxPortalController {
     @GetMapping("/callBack")
     public RedirectView callBack(@RequestParam String code) {
         try {
-            // 通过code获取accessToken
             WxOAuth2AccessToken accessToken = wxService.getOAuth2Service().getAccessToken(code);
-            // 通过accessToken获取用户信息
             WxOAuth2UserInfo userInfo = wxService.getOAuth2Service().getUserInfo(accessToken, "zh_CN");
-            System.out.println(userInfo);
-            //
             wxMsgService.authorize(userInfo);
         } catch (Exception e) {
             log.error("callBack error", e);
         }
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("https://mp.weixin.qq.com/s/m1SRsBG96kLJW5mPe4AVGA");
-//        redirectView.setUrl("https://www.classzou.fun");
+//        redirectView.setUrl("https://mp.weixin.qq.com/s/m1SRsBG96kLJW5mPe4AVGA");
+        redirectView.setUrl("https://www.classzou.fun");
         return redirectView;
     }
 

@@ -1,5 +1,7 @@
 package com.ztl.mallchat.common.user.service.impl;
 
+import com.ztl.mallchat.common.common.annotation.RedissonLock;
+import com.ztl.mallchat.common.common.event.UserRegisterEvent;
 import com.ztl.mallchat.common.common.exception.BusinessException;
 import com.ztl.mallchat.common.common.utils.AssertUtil;
 import com.ztl.mallchat.common.user.dao.ItemConfigDao;
@@ -20,6 +22,7 @@ import org.checkerframework.checker.index.qual.SameLenUnknown;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -43,12 +46,13 @@ public class UserServiceImpl implements IUserService {
     private ItemCache itemCache;
     @Autowired
     private ItemConfigDao itemConfigDao;
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
     @Override
-    @Transactional
-    public Long register(User user1) {
-        userDao.save(user1);
-        // todo 用户注册事件
-        return user1.getId();
+    public void register(User user) {
+        userDao.save(user);
+        //用户注册事件
+        applicationEventPublisher.publishEvent(new UserRegisterEvent(this,user));
     }
 
     @Override
@@ -61,6 +65,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)  // 保证事务对所有异常都生效
+    @RedissonLock(key = "#uid")
     public void modifyName(Long uid, String name) {
         User oldUser = userDao.getByName(name);
         if(Objects.nonNull(oldUser)){

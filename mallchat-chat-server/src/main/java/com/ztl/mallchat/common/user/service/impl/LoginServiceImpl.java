@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class LoginServiceImpl implements LoginService {
-    public static final int TOKEN_EXPIRE_DAYS = 3;
+    public static final int TOKEN_EXPIRE_DAYS = 100;
     public static final int TOKEN_RENEWAL_DAYS = 1;
     @Autowired
     private JwtUtils jwtUtils;

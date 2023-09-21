@@ -27,7 +27,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 public class DaoTest {
 
-    public static final long UID = 100028L;
+    public static final long UID = 20000L;
     @Autowired
     private UserDao userDao;
     @Autowired

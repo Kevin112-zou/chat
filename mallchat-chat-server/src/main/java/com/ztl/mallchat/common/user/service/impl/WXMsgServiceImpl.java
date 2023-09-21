@@ -1,6 +1,8 @@
 package com.ztl.mallchat.common.user.service.impl;
 
 import cn.hutool.core.util.StrUtil;
+import com.ztl.mallchat.common.common.constant.RedisKey;
+import com.ztl.mallchat.common.common.utils.RedisUtils;
 import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import com.ztl.mallchat.common.user.service.IUserService;
@@ -14,6 +16,7 @@ import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
@@ -23,6 +26,7 @@ import javax.jws.soap.SOAPBinding;
 import java.net.URLEncoder;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Description:
@@ -55,21 +59,17 @@ public class WXMsgServiceImpl implements WXMsgService {
     public WxMpXmlOutMessage scan(WxMpXmlMessage wxMpXmlMessage) {
         Integer code = getEventKey(wxMpXmlMessage);
         String openId = wxMpXmlMessage.getFromUser();
-        if(Objects.isNull(code)){
+        User user = userDao.getByOpenId(openId);
+        // 这里双重效验就是为了避免当用户扫码后一直没有点击授权，那么也是登录失败的
+        if (Objects.nonNull(user) && StringUtils.isNotEmpty(user.getAvatar())) {
             return null;
         }
-        User user = userDao.getByOpenId(openId);
-        boolean registered = Objects.nonNull(user);
-        // 这里双重效验就是为了避免当用户扫码后一直没有点击授权，那么也是登录失败的
-        boolean authorized = Objects.nonNull(user) && StrUtil.isNotBlank(user.getAvatar());
-        if (authorized){
-            // todo 登录成功的逻辑，给channel推送消息
-        }
-        if(!registered){
-            // 注册逻辑
+        //user为空先注册,手动生成,以保存uid
+        if (Objects.isNull(user)) {
             User user1 = UserAdapter.buildUser(openId);
             userService.register(user1);
         }
+
         // 推送链接给用户授权
         WAIT_AUTHORIZE_MAP.put(openId,code);
         // 用户扫码成功但是没有授权，向前端推送一个等待授权的信息
