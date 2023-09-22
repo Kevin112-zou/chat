@@ -4,9 +4,11 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.json.JSONUtil;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
+import com.ztl.mallchat.common.common.event.UserOnlineEvent;
 import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import com.ztl.mallchat.common.user.service.LoginService;
+import com.ztl.mallchat.common.websocket.NettyUtil;
 import com.ztl.mallchat.common.websocket.domain.dto.WSChannelExtraDTO;
 import com.ztl.mallchat.common.websocket.domain.vo.resp.ws.WSBaseResp;
 import com.ztl.mallchat.common.websocket.service.WebsocketService;
@@ -17,10 +19,12 @@ import lombok.SneakyThrows;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.result.WxMpQrCodeTicket;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
+import java.util.Date;
 import java.util.Objects;
 import java.util.PrimitiveIterator;
 import java.util.concurrent.ConcurrentHashMap;
@@ -42,6 +46,8 @@ public class WebsocketServiceImpl implements WebsocketService {
 
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
     /**
      * 管理所有的连接（用户&游客）
      */
@@ -145,9 +151,12 @@ public class WebsocketServiceImpl implements WebsocketService {
         // 1. 保存channel对应的uid
         WSChannelExtraDTO wsChannelExtraDTO = ONLINE_WS_MAP.get(channel);
         wsChannelExtraDTO.setUid(user.getId());
-        // todo 用户上下线的事件变更
         // 推送消息给前端
         sendMsg(channel,WebSocketAdapter.buildLoginSuccessResp(user,token));
+        // 用户上下线的事件
+        user.setLastOptTime(new Date());
+        user.refreshIp(NettyUtil.getAttr(channel,NettyUtil.IP));
+        applicationEventPublisher.publishEvent(new UserOnlineEvent(this,user));
     }
 
     private void sendMsg(Channel channel, WSBaseResp<?> resp) {

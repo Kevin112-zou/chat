@@ -4,6 +4,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.FullHttpRequest;
 
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.util.Objects;
 import java.util.Optional;
 /**
  * Description:
@@ -31,6 +34,16 @@ public class HttpHeadersHandler extends ChannelInboundHandlerAdapter {
             String token = Optional.ofNullable(urlBuilder.getQuery()).map(k->k.get("token")).map(CharSequence::toString).orElse("");
             NettyUtil.setAttr(ctx.channel(), NettyUtil.TOKEN, token);
             request.setUri(urlBuilder.getPath().toString());
+            // 获取用户ip
+            String ip = request.headers().get("X-Real-IP");
+            if(Objects.isNull(ip)){
+                InetSocketAddress address = (InetSocketAddress)ctx.channel().remoteAddress();
+                ip = address.getAddress().getHostAddress();
+            }
+            // 保存ip到channel附件中
+            NettyUtil.setAttr(ctx.channel(), NettyUtil.IP, ip);
+            // 因为处理器只需求执行一次，用完就扔掉
+            ctx.pipeline().remove(this);
         }
         ctx.fireChannelRead(msg);
     }

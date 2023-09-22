@@ -1,12 +1,14 @@
 package com.ztl.mallchat.common.common.event.listener;
 
+import com.ztl.mallchat.common.common.event.UserOnlineEvent;
 import com.ztl.mallchat.common.common.event.UserRegisterEvent;
+import com.ztl.mallchat.common.user.dao.UserDao;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import com.ztl.mallchat.common.user.domain.enums.IdempotentEnum;
 import com.ztl.mallchat.common.user.domain.enums.ItemEnum;
-import com.ztl.mallchat.common.user.domain.enums.ItemTypeEnum;
+import com.ztl.mallchat.common.user.domain.enums.UserActiveStatusEnum;
 import com.ztl.mallchat.common.user.service.IUserBackpackService;
-import org.checkerframework.checker.units.qual.A;
+import com.ztl.mallchat.common.user.service.IpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
@@ -20,18 +22,27 @@ import org.springframework.transaction.event.TransactionalEventListener;
  * Date:  2023/09/21
  */
 @Component
-public class UserRegisterListener {
+public class UserOnlineListener {
     @Autowired
-    private IUserBackpackService userBackpackService;
+    private IpService ipService;
+    @Autowired
+    private UserDao userDao;
 
     /**
      * @Async : 异步执行
      * @TransactionalEventListener： 配置执行的顺序，事务提交前还是后执行
      */
     @Async
-    @EventListener(classes = UserRegisterEvent.class)
-    public void sendCard(UserRegisterEvent event){
+    @EventListener(classes = UserOnlineEvent.class)
+    public void saveIpInfoToDb(UserOnlineEvent event){
         User user = event.getUser();
-        userBackpackService.acquireItem(user.getId(), ItemEnum.MODIFY_NAME_CARD.getId(), IdempotentEnum.UID,user.getId().toString());
+        User update = new User();
+        update.setId(user.getId());
+        update.setLastOptTime(user.getLastOptTime());
+        update.setIpInfo(user.getIpInfo());
+        update.setStatus(UserActiveStatusEnum.ONLINE.getStatus());
+        userDao.updateById(update);
+        // 用户解析ip
+        ipService.refreshIpDetailsAsync(user.getId());
     }
 }

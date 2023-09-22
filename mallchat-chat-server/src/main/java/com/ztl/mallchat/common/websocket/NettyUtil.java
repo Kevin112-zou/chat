@@ -11,6 +11,7 @@ import io.netty.util.AttributeKey;
  */
 public class NettyUtil {
     public static AttributeKey<String> TOKEN = AttributeKey.valueOf("token");
+    public static AttributeKey<String> IP = AttributeKey.valueOf("ip");
     /**
      * 你可以在Netty应用程序中方便地将自定义属性附加到通道上，以便稍后可以使用这些属性来存储和检索数据。
      */
