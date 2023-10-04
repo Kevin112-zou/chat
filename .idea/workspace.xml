@@ -4,39 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="完成ip归宿地设计，并修改json反序列化的bug">
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/UserBlackEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/listener/UserBlackListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/Black.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/entity/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/enums/BlackTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/domain/enums/RoleEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/mapper/BlackMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/mapper/RoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/mapper/UserRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IBlackService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IUserRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/cache/UserCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/mapper.user/BlackMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/mapper.user/RoleMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/mapper.user/UserRoleMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/adapter/UserAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/adapter/UserAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/handler/SubscribeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/handler/SubscribeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/WXMsgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/impl/WXMsgServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/WebsocketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/WebsocketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/adapter/WebSocketAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/adapter/WebSocketAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/DaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/DaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/MPGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/test/java/com/ztl/mallchat/common/MPGenerator.java" afterDir="false" />
+    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="黑名单功能：拉黑id和ip">
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/listener/UserBlackListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/listener/UserBlackListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +233,7 @@
       <workItem from="1696323195410" duration="1549000" />
       <workItem from="1696338219206" duration="50000" />
       <workItem from="1696385263488" duration="62000" />
-      <workItem from="1696395762352" duration="13465000" />
+      <workItem from="1696395762352" duration="14267000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
@@ -406,7 +375,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695379366848</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="黑名单功能：拉黑id和ip">
+      <option name="closed" value="true" />
+      <created>1696420876501</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420876501</updated>
+    </task>
+    <task id="LOCAL-00020" summary="黑名单功能：拉黑id和ip">
+      <option name="closed" value="true" />
+      <created>1696420910495</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696420910495</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +439,8 @@
     <MESSAGE value="物品发放幂等性设计" />
     <MESSAGE value="分布式锁设计" />
     <MESSAGE value="完成ip归宿地设计，并修改json反序列化的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成ip归宿地设计，并修改json反序列化的bug" />
+    <MESSAGE value="黑名单功能：拉黑id和ip" />
+    <option name="LAST_COMMIT_MESSAGE" value="黑名单功能：拉黑id和ip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

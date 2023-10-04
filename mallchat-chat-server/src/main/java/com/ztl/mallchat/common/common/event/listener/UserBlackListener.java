@@ -35,7 +35,7 @@ public class UserBlackListener {
      * @TransactionalEventListener： 配置执行的顺序，事务提交前还是提交后执行
      */
     @Async
-    @TransactionalEventListener(classes = UserBlackEvent.class,phase = TransactionPhase.AFTER_COMMIT)
+    @EventListener(classes = UserBlackEvent.class)
     public void sendMsg(UserBlackEvent event){
         User user = event.getUser();
         WSBaseResp<?> wsBlackResp = WebSocketAdapter.buildBlackResp(user);
@@ -43,7 +43,7 @@ public class UserBlackListener {
     }
 
     @Async
-    @TransactionalEventListener(classes = UserBlackEvent.class,phase = TransactionPhase.AFTER_COMMIT)
+    @EventListener(classes = UserBlackEvent.class)
     public void changeStatus(UserBlackEvent event){
         User user = event.getUser();
         userDao.invalidUid(user.getId());
