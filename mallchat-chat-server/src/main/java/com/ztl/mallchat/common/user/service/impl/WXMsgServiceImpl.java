@@ -69,7 +69,6 @@ public class WXMsgServiceImpl implements WXMsgService {
             User user1 = UserAdapter.buildUser(openId);
             userService.register(user1);
         }
-
         // 推送链接给用户授权
         WAIT_AUTHORIZE_MAP.put(openId,code);
         // 用户扫码成功但是没有授权，向前端推送一个等待授权的信息

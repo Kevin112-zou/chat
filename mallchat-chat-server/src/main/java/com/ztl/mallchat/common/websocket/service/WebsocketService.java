@@ -1,6 +1,8 @@
 package com.ztl.mallchat.common.websocket.service;
 
+import com.ztl.mallchat.common.websocket.domain.vo.resp.ws.WSBaseResp;
 import io.netty.channel.Channel;
+import me.chanjar.weixin.mp.bean.device.BaseResp;
 
 /**
  * author  kevin
@@ -18,4 +20,10 @@ public interface WebsocketService {
     void waitAuthorize(Integer code);
 
     void authorize(Channel channel, String data);
+
+    /**
+     * 发送消息给所有在线用户（单机可用）
+     */
+    void sendMsgToAll(WSBaseResp<?> msg);
+
 }

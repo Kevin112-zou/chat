@@ -1,5 +1,7 @@
 package com.ztl.mallchat.common.user.dao;
 
+import com.ztl.mallchat.common.common.enums.YesOrNo;
+import com.ztl.mallchat.common.user.domain.entity.Black;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import com.ztl.mallchat.common.user.mapper.UserMapper;
 import com.ztl.mallchat.common.user.service.IUserService;
@@ -40,6 +42,13 @@ public class UserDao extends ServiceImpl<UserMapper, User> {
         lambdaUpdate()
                 .eq(User::getId, uid)
                 .eq(User::getItemId, badgeId)
+                .update();
+    }
+
+    public void invalidUid(Long id) {
+        lambdaUpdate()
+                .eq(User::getId,id)
+                .set(User::getStatus, YesOrNo.YES.getStatus())
                 .update();
     }
 }

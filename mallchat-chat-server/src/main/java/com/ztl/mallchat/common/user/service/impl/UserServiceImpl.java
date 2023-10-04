@@ -1,23 +1,30 @@
 package com.ztl.mallchat.common.user.service.impl;
 
 import com.ztl.mallchat.common.common.annotation.RedissonLock;
+import com.ztl.mallchat.common.common.enums.YesOrNo;
+import com.ztl.mallchat.common.common.event.UserBlackEvent;
 import com.ztl.mallchat.common.common.event.UserRegisterEvent;
+import com.ztl.mallchat.common.common.event.listener.UserBlackListener;
 import com.ztl.mallchat.common.common.exception.BusinessException;
 import com.ztl.mallchat.common.common.utils.AssertUtil;
+import com.ztl.mallchat.common.user.dao.BlackDao;
 import com.ztl.mallchat.common.user.dao.ItemConfigDao;
 import com.ztl.mallchat.common.user.dao.UserBackpackDao;
 import com.ztl.mallchat.common.user.dao.UserDao;
-import com.ztl.mallchat.common.user.domain.entity.ItemConfig;
-import com.ztl.mallchat.common.user.domain.entity.User;
-import com.ztl.mallchat.common.user.domain.entity.UserBackpack;
+import com.ztl.mallchat.common.user.domain.entity.*;
+import com.ztl.mallchat.common.user.domain.enums.BlackTypeEnum;
 import com.ztl.mallchat.common.user.domain.enums.ItemEnum;
 import com.ztl.mallchat.common.user.domain.enums.ItemTypeEnum;
+import com.ztl.mallchat.common.user.domain.vo.req.user.BlackReq;
 import com.ztl.mallchat.common.user.domain.vo.req.user.WearingBadgeReq;
 import com.ztl.mallchat.common.user.domain.vo.resp.user.BadgeResp;
 import com.ztl.mallchat.common.user.domain.vo.resp.user.UserInfoResp;
 import com.ztl.mallchat.common.user.service.IUserService;
 import com.ztl.mallchat.common.user.service.adapter.UserAdapter;
 import com.ztl.mallchat.common.user.service.cache.ItemCache;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.index.qual.SameLenUnknown;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -26,8 +33,10 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +45,7 @@ import java.util.stream.Collectors;
  * Date:  2023/09/10
  */
 @Service
+@Slf4j
 public class UserServiceImpl implements IUserService {
 
     @Autowired
@@ -48,6 +58,8 @@ public class UserServiceImpl implements IUserService {
     private ItemConfigDao itemConfigDao;
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
+    @Autowired
+    private BlackDao blackDao;
     @Override
     public void register(User user) {
         userDao.save(user);
@@ -107,5 +119,37 @@ public class UserServiceImpl implements IUserService {
         ItemConfig itemConfig = itemConfigDao.getById(firstValidItem.getItemId());
         AssertUtil.equal(itemConfig.getType(),ItemTypeEnum.BADGE.getType(),"只有徽章才能佩戴哦~~~");
         userDao.wearingBadge(uid,req.getBadgeId());
+    }
+
+    @Override
+    public void black(BlackReq req) {
+        // 设置拉黑的uid
+        Long uid = req.getUid();
+        Black user = new Black();
+        user.setType(BlackTypeEnum.UID.getType());
+        user.setTarget(req.getUid().toString());
+        blackDao.save(user);
+        // 设置拉黑ip
+        User byId = userDao.getById(uid);
+        // 防止ip没有出现空指针异常
+        blackIp(Optional.ofNullable(byId.getIpInfo()).map(IpInfo::getCreateIp).orElse(null));
+        blackIp(Optional.ofNullable(byId.getIpInfo()).map(IpInfo::getUpdateIp).orElse(null));
+        // 将拉黑用户推送给前端
+        applicationEventPublisher.publishEvent(new UserBlackEvent(this,byId));
+
+    }
+
+    private void blackIp(String ip) {
+        if(StringUtils.isBlank(ip)){
+            return;
+        }
+        try {
+            Black user = new Black();
+            user.setTarget(ip);
+            user.setType(BlackTypeEnum.IP.getType());
+            blackDao.save(user);
+        } catch (Exception e) {
+            log.error("duplicate black ip:{}", ip);
+        }
     }
 }

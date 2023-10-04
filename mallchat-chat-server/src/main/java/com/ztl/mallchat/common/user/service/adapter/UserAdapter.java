@@ -13,10 +13,12 @@ import com.ztl.mallchat.common.common.enums.YesOrNo;
 import com.ztl.mallchat.common.user.domain.entity.ItemConfig;
 import com.ztl.mallchat.common.user.domain.entity.User;
 import com.ztl.mallchat.common.user.domain.entity.UserBackpack;
+import com.ztl.mallchat.common.user.domain.enums.UserActiveStatusEnum;
 import com.ztl.mallchat.common.user.domain.vo.resp.user.BadgeResp;
 import com.ztl.mallchat.common.user.domain.vo.resp.user.UserInfoResp;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
+import me.chanjar.weixin.mp.bean.device.BaseResp;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -77,4 +79,5 @@ public class UserAdapter {
                 .thenComparing(BadgeResp::getObtain, Comparator.reverseOrder()))
                 .collect(Collectors.toList());
     }
+
 }
