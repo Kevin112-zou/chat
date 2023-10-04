@@ -8,6 +8,7 @@ import com.ztl.mallchat.common.user.domain.enums.IdempotentEnum;
 import com.ztl.mallchat.common.user.domain.enums.ItemEnum;
 import com.ztl.mallchat.common.user.service.IUserBackpackService;
 import com.ztl.mallchat.common.user.service.adapter.UserAdapter;
+import com.ztl.mallchat.common.user.service.cache.UserCache;
 import com.ztl.mallchat.common.websocket.domain.vo.resp.ws.WSBaseResp;
 import com.ztl.mallchat.common.websocket.domain.vo.resp.ws.WSBlack;
 import com.ztl.mallchat.common.websocket.service.WebsocketService;
@@ -30,6 +31,8 @@ public class UserBlackListener {
     private WebsocketService websocketService;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private UserCache userCache;
     /**
      * @Async : 异步执行
      * @TransactionalEventListener： 配置执行的顺序，事务提交前还是提交后执行
@@ -47,5 +50,11 @@ public class UserBlackListener {
     public void changeStatus(UserBlackEvent event){
         User user = event.getUser();
         userDao.invalidUid(user.getId());
+    }
+
+    @Async
+    @EventListener(classes = UserBlackEvent.class)
+    public void evictCache(){
+        userCache.evictBlackMap();
     }
 }

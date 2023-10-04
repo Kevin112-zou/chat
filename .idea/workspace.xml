@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="黑名单功能：拉黑id和ip">
+    <list default="true" id="16d695c5-d321-4c2c-9364-f74d32d28c90" name="Changes" comment="黑名单功能：fix状态修改的bug">
+      <change afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/interceptor/BlackInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/listener/UserBlackListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/listener/UserBlackListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/interceptor/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/interceptor/InterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/cache/UserCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/service/cache/UserCache.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,11 +101,11 @@
       <recent name="com.ztl.mallchat.common.common.config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ztl.mallchat.common.common.interceptor" />
       <recent name="com.ztl.mallchat.common.common.event.listener" />
       <recent name="com.ztl.mallchat.common.common.event" />
       <recent name="com.ztl.mallchat.common.user.domain.enums" />
       <recent name="com.ztl.mallchat.common.user.service.cache" />
-      <recent name="com.ztl.mallchat.common.common.config" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.MallchatCustomApplication">
@@ -233,7 +237,7 @@
       <workItem from="1696323195410" duration="1549000" />
       <workItem from="1696338219206" duration="50000" />
       <workItem from="1696385263488" duration="62000" />
-      <workItem from="1696395762352" duration="14267000" />
+      <workItem from="1696395762352" duration="18328000" />
     </task>
     <task id="LOCAL-00001" summary="mallchat环境搭建">
       <option name="closed" value="true" />
@@ -391,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696420910495</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="黑名单功能：fix状态修改的bug">
+      <option name="closed" value="true" />
+      <created>1696426691633</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1696426691633</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +452,8 @@
     <MESSAGE value="分布式锁设计" />
     <MESSAGE value="完成ip归宿地设计，并修改json反序列化的bug" />
     <MESSAGE value="黑名单功能：拉黑id和ip" />
-    <option name="LAST_COMMIT_MESSAGE" value="黑名单功能：拉黑id和ip" />
+    <MESSAGE value="黑名单功能：fix状态修改的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="黑名单功能：fix状态修改的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -484,11 +497,6 @@
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/user/dao/UserDao.java</url>
           <line>49</line>
           <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/common/event/listener/UserBlackListener.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/mallchat-chat-server/src/main/java/com/ztl/mallchat/common/websocket/service/impl/WebsocketServiceImpl.java</url>
